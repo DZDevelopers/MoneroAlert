@@ -1,0 +1,81 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editNodeUrl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Node URL (e.g. http://127.0.0.1)"
+        android:inputType="textUri"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/editNodePort"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Port (e.g. 18081)"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/editNodeUrl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/editInterval"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Check interval (minutes, default 15)"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/editNodePort"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/editThreshold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Reorg depth threshold (default 4)"
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@id/editInterval"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnSaveStart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Save & Start"
+        app:layout_constraintTop_toBottomOf="@id/editThreshold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/tvLogsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recent alerts:"
+        app:layout_constraintTop_toBottomOf="@id/btnSaveStart"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerLogs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tvLogsLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
